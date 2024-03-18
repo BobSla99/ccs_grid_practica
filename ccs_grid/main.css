@@ -1,0 +1,54 @@
+.grid-container {
+  display: grid;
+  /* crea dos colunas 1fracion */
+  grid-template-columns: repeat(2, 1fr);
+  /* la fila 1 sera minimo 400px height y crecera hasta su contenido si hace falta */
+  /* la fila 2 y 3 se adaptaran a su contenido */
+  grid-template-rows: minmax(400px, auto) auto 200px;
+
+  /* separacion entre columns y rows */
+  gap: 50px;
+
+  /* separacion de columns y row individual ,sobrescribe gap */
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.grid-container div {
+  background-color: #ecf0f1;
+  padding: 1rem;
+}
+
+.grid-container > div:nth-child(5){
+    align-self: stretch;
+    background-color: gray;
+}
+.grid-container div div:nth-child(2) {
+  /* alinearse el mismo dentro de la column verticalmente,permite start,center,end,strecht(default) */
+  align-self: start;
+}
+.grid-container div:hover {
+  border: 1px solid yellow;
+}
+
+.grid-nested {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: auto;
+
+  /* alinear su  contenido dentro de la column verticalmente,permite start,center,end,strecht(default) */
+  align-items: end;
+
+  /* alinear su  contenido dentro de la column horizontalmente,permite start,center,end,strecht(default) */
+  justify-items: start;
+}
+
+.grid-nested div {
+  background-color: yellow;
+  border: 1px solid black;
+}
+.grid-nested div:nth-child(3) {
+  align-self: start;
+  justify-self: end;
+}
